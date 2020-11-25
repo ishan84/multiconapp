@@ -42,7 +42,7 @@ class Fib extends Component {
         for (let key in this.state.values) {
             entries.push(
                 <div key={key}>
-                    For index {key} I Calculated {this.state.values[key]} //Video has an extra curly bracket
+                    For index {key} I Calculated {this.state.values[key]}
                 </div>
             );
         }
