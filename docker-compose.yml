@@ -29,6 +29,7 @@ services:
       - PGUSER=postgres
       - PGPASSWORD=postgres_password
   client:
+    stdin_open: true
     build:
       dockerfile: Dockerfile.dev
       context: ./client
@@ -42,3 +43,6 @@ services:
     volumns:
       - /app/mode_modules
       - ./worker:/app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
