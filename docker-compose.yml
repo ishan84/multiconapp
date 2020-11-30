@@ -33,14 +33,14 @@ services:
     build:
       dockerfile: Dockerfile.dev
       context: ./client
-    volumns:
+    volumes:
       - /appnode_modules
       - ./client:/app
   worker:
     build:
       dockerfile: Dockerfile.dev
       context: ./worker
-    volumns:
+    volumes:
       - /app/mode_modules
       - ./worker:/app
     environment:
