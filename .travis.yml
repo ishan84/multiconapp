@@ -10,8 +10,12 @@ script:
 
 after_success:
   - docker build -t ishan84/multiconapp-client ./client
-  - docker build -t ishan84/multiconapp-client ./nginx
-  - docker build -t ishan84/multiconapp-client ./server
-  - docker build -t ishan84/multiconapp-client ./worker
+  - docker build -t ishan84/multiconapp-nginx ./nginx
+  - docker build -t ishan84/multiconapp-server ./server
+  - docker build -t ishan84/multiconapp-worker ./worker
 
-  
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push ishan84/multiconapp-client
+  - docker push ishan84/multiconapp-nginx
+  - docker push ishan84/multiconapp-server
+  - docker push ishan84/multiconapp-worker
