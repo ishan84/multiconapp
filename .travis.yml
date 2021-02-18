@@ -1,0 +1,17 @@
+sudo: isrequired
+services:
+  - docker
+
+before_install:
+  - docker build -t ishan84/multiconapp-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true ishan84/multiconapp-test npm test -- --co
+
+after_success:
+  - docker build -t ishan84/multiconapp-client ./client
+  - docker build -t ishan84/multiconapp-client ./nginx
+  - docker build -t ishan84/multiconapp-client ./server
+  - docker build -t ishan84/multiconapp-client ./worker
+
+  
