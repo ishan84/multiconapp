@@ -19,3 +19,15 @@ after_success:
   - docker push ishan84/multiconapp-nginx
   - docker push ishan84/multiconapp-server
   - docker push ishan84/multiconapp-worker
+
+deploy:
+  provider: elasticbeanstock
+  region: us-east-1
+  app: multiconapp
+  env: Multiconapp-env
+  bucket_name: elasticbeanstalk-us-east-1-486125389802
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY

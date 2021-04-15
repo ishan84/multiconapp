@@ -1,0 +1,36 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions":[
+        {
+            "name": "client",
+            "image": "ishan84/multiconapp-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "multiconapp-server",
+            "hostname": "api",
+            "essential":false
+        },
+        {
+            "name": "worker",
+            "image": "multiconapp-worker",
+            "hostname": "worker",
+            "essential":false
+        },
+        {
+            "name": "nginx",
+            "image": "multiconapp-nginx",
+            "hostname": "nginx",
+            "essential":true,
+            "portMappings":[
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client","server"]
+        }
+    ]
+}
