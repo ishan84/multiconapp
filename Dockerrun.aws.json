@@ -10,21 +10,21 @@
         },
         {
             "name": "server",
-            "image": "multiconapp-server",
+            "image": "ishan84/multiconapp-server",
             "hostname": "api",
             "essential":false,
             "memory": 128
         },
         {
             "name": "worker",
-            "image": "multiconapp-worker",
+            "image": "ishan84/multiconapp-worker",
             "hostname": "worker",
             "essential":false,
             "memory": 128
         },
         {
             "name": "nginx",
-            "image": "multiconapp-nginx",
+            "image": "ishan84/multiconapp-nginx",
             "hostname": "nginx",
             "essential":true,
             "memory": 128,
